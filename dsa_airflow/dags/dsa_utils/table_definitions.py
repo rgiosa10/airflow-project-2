@@ -108,7 +108,7 @@ TABLE_SCHEMAS = {
     'airports': AIRLINES_TABLE_SCHEMA,
     'airlines': AIRLINES_TABLE_SCHEMA,
     'routes': ROUTES_TABLE_SCHEMA,
-    'aircraft': AIRCRAFT_TABLE_SCHEMA,
+    'aircrafts': AIRCRAFT_TABLE_SCHEMA,
 }
 
 def create_dataset() -> None: 

@@ -4,6 +4,7 @@ import os
 import yaml
 
 from airflow.models import Variable
+from airflow.hooks.filesystem import FSHook
 
 # -------------------------------------------
 # Set up logging
@@ -42,5 +43,7 @@ with open(CONF_PATH) as open_yaml:
 # ---------------------------------------------
 # default config file path when running locally (not within airflow docker container)
 # get the path from airflow variables OR set it to default local path
-_default_data_dir_path = os.path.join(get_this_dir(), '../../data')
-DATA_DIR = Variable.get('data_dir', default_var=_default_data_dir_path)
+data_fs = FSHook(conn_id='data_fs')     # get airflow connection for data_fs
+DATA_DIR = data_fs.get_path()  
+#_default_data_dir_path = os.path.join(get_this_dir(), '../../data')
+#DATA_DIR = Variable.get('data_dir', default_var=_default_data_dir_path)

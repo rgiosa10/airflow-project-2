@@ -60,7 +60,7 @@ def check_bigquery_client():
 # -----------------------------------------
 
 with DAG(
-    dag_id='dsa_load_tables',
+    dag_id='dsa_load_tables_2',
     schedule_interval='@once',
     start_date=datetime.utcnow(),
     catchup=False,
@@ -82,14 +82,17 @@ with DAG(
     print(__file__)
     # pre-check task
 
-    check_0 = FileSensor(
-        task_id='wait_for_file',
-        poke_interval=15,                   # check every 15 seconds
-        timeout=(30 * 60),                  # timeout after 30 minutes
-        mode='poke',                        # mode: poke, reschedule
-        filepath=DATA_DIR,        # file path to check (relative to fs_conn)
-        fs_conn_id='data_fs',      
-    )
+    check_0 = []
+    for file in DATA_FILES.keys():
+        check = FileSensor(
+            task_id=f'wait_for_{file}_file',
+            poke_interval=15,                   # check every 15 seconds
+            timeout=(30 * 60),                  # timeout after 30 minutes
+            mode='poke',                        # mode: poke, reschedule
+            filepath=f'deb-{file}.csv',        # file path to check  
+            fs_conn_id='data_fs'   
+        )
+        check_0.append(check)
 
     check_1 = PythonOperator(
         task_id='check_data_files',
@@ -111,7 +114,7 @@ with DAG(
     # create an empty operator before branching out to create tables
     t1 = EmptyOperator(task_id='create_tables')
 
-    table_names = ('airports', 'airlines', 'routes', 'aircraft')
+    table_names = ('airports', 'airlines', 'routes', 'aircrafts')
 
     # create a separate task for creating each table
     create_tasks = []

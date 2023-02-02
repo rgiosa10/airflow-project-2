@@ -32,11 +32,18 @@ def get_client() -> bigquery.Client:
 
 
 # global variable to hold data files
+#DATA_FILES = {
+    #'airports': os.path.join(DATA_DIR, config['airport_data']),
+    #'airlines': os.path.join(DATA_DIR, config['airline_data']),
+    #'routes': os.path.join(DATA_DIR, config['route_data']),
+    #'aircrafts': os.path.join(DATA_DIR, config['aircraft_data']),
+#}
+
 DATA_FILES = {
     'airports': os.path.join(DATA_DIR, config['airport_data']),
     'airlines': os.path.join(DATA_DIR, config['airline_data']),
     'routes': os.path.join(DATA_DIR, config['route_data']),
-    'aircraft': os.path.join(DATA_DIR, config['aircraft_data']),
+    'aircrafts': os.path.join(DATA_DIR, config['aircraft_data']),
 }
 
 

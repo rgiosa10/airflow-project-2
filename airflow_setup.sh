@@ -6,7 +6,7 @@ cd dsa-airflow
 mkdir ./logs ./plugins
 
 # download the docker-compose.yaml and set the .env
-curl -Lf 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml' > docker-compose.yaml
+#curl -Lf 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml' > docker-compose.yaml
 echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
 
 ## MOUNT YOUR DATA AND CREDENTIALS DIRECTORY
@@ -34,5 +34,5 @@ echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
 #
 #
 # NOTE: Run the airflow-init before running `docker-compose up`:
-#   `docker-compose up airflow-init`
+docker-compose up airflow-init
 #

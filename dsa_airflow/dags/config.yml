@@ -1,6 +1,6 @@
 # google cloud config
 project: deb-01-371820
-dataset: ch12_ep1
+dataset: airspace
 
 # data files
 airport_data: deb-airports.csv

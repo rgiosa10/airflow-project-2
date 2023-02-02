@@ -1,0 +1,9 @@
+# google cloud config
+project: deb-01-371820
+dataset: ch12_ep1
+
+# data files
+airport_data: deb-airports.csv
+airline_data: deb-airlines.csv
+route_data: deb-routes.csv
+aircraft_data: deb-aircrafts.csv

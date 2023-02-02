@@ -1,0 +1,5 @@
+logs/
+plugins/
+.env
+dsa-airflow/data/*.csv
+data/*.csv

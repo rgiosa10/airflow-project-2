@@ -2,7 +2,7 @@
 
 #### By [Ruben Giosa](https://www.linkedin.com/in/rubengiosa/)
 
-#### This repo showcases an iteration of an ETL from Data Stack Academy that is triggered when csv files are detected in data directory, then creates 1) dataset 2) tables in BigQuery 
+#### This repo showcases an iteration of an ETL from Data Stack Academy that is triggered when csv files are detected in data directory and adds additional task for creating a dataset. It then creates 1) dataset 2) tables in BigQuery.
 
 <br>
 
